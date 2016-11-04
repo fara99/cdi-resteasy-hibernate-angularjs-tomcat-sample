@@ -5,15 +5,22 @@ import org.apache.log4j.Logger;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+
+
+
 import java.util.List;
 
 /**
  *  Sample AirportDAO
  */
+
+
 public class AirportDAO {
 
 	@Inject
 	EntityManager em;
+	
+	
 
 	@Inject
 	Logger log;
@@ -47,9 +54,10 @@ public class AirportDAO {
 			return getNoResultObject();
 		}
 	}
-
+	
+	
 	public Airport insert(Airport airport) {
-		try {
+		try {			
 			em.getTransaction().begin();
 			em.persist(airport);
 			em.getTransaction().commit();
@@ -59,9 +67,11 @@ public class AirportDAO {
 		}
 		return airport;
 	}
-
+	
+	
 	public Airport update(Airport airport) {
 		try {
+			
 			em.getTransaction().begin();
 			em.merge(airport);
 			em.getTransaction().commit();
@@ -71,7 +81,8 @@ public class AirportDAO {
 		}
 		return airport;
 	}
-
+	
+	
 	public void remove(Long id) {
 		Airport airport = em.find(Airport.class, id);
 		try {
