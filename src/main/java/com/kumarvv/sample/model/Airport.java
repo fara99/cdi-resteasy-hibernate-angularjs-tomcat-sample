@@ -14,9 +14,7 @@ public class Airport {
 	private String country;
 
 	@Id
-    @SequenceGenerator(name="airport_id_seq",sequenceName="airport_id_seq",allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator="airport_id_seq")
-    @Column(name = "id", updatable=false)
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="generator.main_id_seq")
 	public Long getId() {
 		return id;
 	}
@@ -25,7 +23,7 @@ public class Airport {
 		this.id = id;
 	}
 
-	@Column(unique = true, nullable = false, length = 5)
+	@Column(nullable = false, length = 5)
 	public String getCode() {
 		return code;
 	}

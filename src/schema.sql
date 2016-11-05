@@ -1,7 +1,9 @@
-CREATE TABLE airport (
+CREATE TABLE Airport (
   id serial primary key,
-  code varchar(5) NOT NULL DEFAULT '',
-  name varchar(255) NOT NULL DEFAULT '',
-  country varchar(255) DEFAULT NULL
+  code character varying NOT NULL DEFAULT '',
+  name character varying NOT NULL DEFAULT '',
+  country character varying DEFAULT NULL
 );
-CREATE UNIQUE INDEX code ON airport (code);
+
+ALTER TABLE airport ALTER COLUMN id SET DEFAULT nextval('"airport_id_seq"');
+
